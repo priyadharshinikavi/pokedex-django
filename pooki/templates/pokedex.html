@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokédex</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #fff8dc;
+            text-align: center;
+            padding: 50px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 30px;
+        }
+        img {
+            height: 200px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+            color: red;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'logout' %}">Logout</a>
+    <h1>Pokédex</h1>
+    <form method="GET">
+        <input type="text" name="pokemon" placeholder="Enter Pokémon name">
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="result">
+        {% if pokemon %}
+            <h2>{{ pokemon.name|title }}</h2>
+            <img src="{{ pokemon.image }}" alt="Image">
+            <h3>Types:</h3>
+            <ul>
+                {% for type in pokemon.types %}
+                    <li>{{ type }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Abilities:</h3>
+            <ul>
+                {% for ability in pokemon.abilities %}
+                    <li>{{ ability }}</li>
+                {% endfor %}
+            </ul>
+        {% elif error %}
+            <p style="color: red;">Error: {{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
