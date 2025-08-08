@@ -53,7 +53,7 @@ def pokedex(request):
     context = {}
     if 'pokemon' in request.GET:
         pokemon_name = request.GET['pokemon'].lower()
-        url = f"https://pokeapi.co/api/v2/pokemon/ditto"
+        url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}"
         response = requests.get(url)
         if response.status_code == 200:
             data = response.json()
