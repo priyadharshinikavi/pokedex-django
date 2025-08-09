@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = 'django-insecure-t+koaiw*i2^5h(kt5+fab@g#pme04x4ty@vbk5#ux@z=r4$^-_'
 DEBUG = True
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['pokedex-django.onrender.com']
 
 # Application definition
 INSTALLED_APPS = [
