@@ -11,9 +11,9 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
-SECRET_KEY = 'django-insecure-t+koaiw*i2^5h(kt5+fab@g#pme04x4ty@vbk5#ux@z=r4$^-_'
-DEBUG = True
-ALLOWED_HOSTS = ['pokedex-django.onrender.com']
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-t+koaiw*i2^5h(kt5+fab@g#pme04x4ty@vbk5#ux@z=r4$^-_')
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+ALLOWED_HOSTS = ['pokedex-django.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
